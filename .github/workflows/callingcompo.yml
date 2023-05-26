@@ -1,0 +1,33 @@
+---
+
+name: RECYCLE_dev
+
+  workflow_dispatch:
+
+    inputs:
+
+      ENVIRONMENT:
+        type: choice
+
+        options:
+          - dev
+          - qa
+          - citest
+          - cso
+          - prod 
+
+jobs:
+
+  SEND_NOTIFICATION:
+
+    runs-on: 'windows-latest'
+
+    steps:
+
+      - name: Send email notification
+        uses: knowyrtech/testcomposite@main
+
+        with:
+          envName: "${{ inputs.ENVIRONMENT }}"
+          EmailList: "knowyrtech@mybank.com"
+          comments: "These comments are passed to composite actions"
