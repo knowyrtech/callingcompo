@@ -1,7 +1,7 @@
 ---
 
 name: RECYCLE_dev
-
+on:
   workflow_dispatch:
 
     inputs:
